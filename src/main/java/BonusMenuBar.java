@@ -6,26 +6,34 @@ public class BonusMenuBar extends JMenuBar {
 
     private JMenu fileMenu = new JMenu("File");
 
-    private JMenuItem fileMenuItem1, fileMenuItem2;
+    private JMenuItem fileMenuItemClassroomForm, fileMenuItemClassroomList, fileMenuItemExit;
 
     public BonusMenuBar() {
-        fileMenuItem1 = new JMenuItem("Nová třída");
-        fileMenuItem1.addActionListener(new ActionListener() {
+        fileMenuItemClassroomForm = new JMenuItem("Nová třída");
+        fileMenuItemClassroomForm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 new TridaFormPanel();
             }
         });
-        fileMenuItem2 = new JMenuItem("Exit");
-        fileMenuItem2.addActionListener(new ActionListener() {
+        fileMenuItemClassroomList = new JMenuItem("Classroom list");
+        fileMenuItemClassroomList.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ClassroomListPanel();
+            }
+        });
+        fileMenuItemExit = new JMenuItem("Exit");
+        fileMenuItemExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 System.exit(0);
             }
         });
-        fileMenu.add(fileMenuItem1);
+        fileMenu.add(fileMenuItemClassroomForm);
+        fileMenu.add(fileMenuItemClassroomList);
         fileMenu.addSeparator();
-        fileMenu.add(fileMenuItem2);
+        fileMenu.add(fileMenuItemExit);
         this.add(fileMenu);
     }
 }
